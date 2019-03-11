@@ -1,11 +1,12 @@
 <template>
   <div>
-    <l-map  ref="myMap"
+    <div class="fullsMap" />
+    <div class="activeArea" />
+    <l-map ref="myMap"
       :zoom="zoom"
       :center="center"
       :options="mapOptions"
-      :bounds="bounds"
-      style="height: 100vH"
+      style="height: 70vH"
       @update:center="centerUpdate"
       @update:zoom="zoomUpdate"
     >
@@ -20,7 +21,7 @@
         :visible="true"
         :draggable="false"
         :lat-lng.sync="marker.position"
-        @click="opened = marker.index"
+        @click="loadStation(marker.index)"
       />
       </l-marker>
       <l-marker
@@ -34,27 +35,35 @@
       </l-marker>
     </l-map>
     <div v-for="site in sites" :key="site.index">
-      <station :id="site.index" v-show="site.index === opened" @clickclose="closeStations"></station>
+      <station :id="site.index" :station="site.station" v-show="site.index === opened" 
+        @animate="animateMap"
+        @clickclose="closeStations"></station>
     </div>
-
+<!-- 
     <h1>Sites:</h1>
     <ul v-if="sites.length > 0">
       <li v-for="site in sites" :key="site.index">{{ site.name.filter((x) => { return x.locale === $i18n.locale})[0].name }}</li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import Station from '@/components/Station'
 import { L, LMap, LTileLayer, LMarker } from 'vue2-leaflet'
-
+import 'leaflet-active-area'
 export default {
   components: {
       LMap,
       LTileLayer,
-      LMarker, 
+      LMarker,
       Station
+  },
+  head: {
+    title: {
+      inner: 'Siberi Lapsed',
+      complement: 'Map'
+    }
   },
   data () {
     return {
@@ -73,35 +82,69 @@ export default {
       mapOptions: {
         zoomSnap: 0.5
       },
-      bounds: null
+      bounds: null,
+      newBounds: null,
+      startZoom: null
     }
   },
   methods: {
+    animateMap (coords) {
+      // console.log(this.markerGroup.map)
+      const map = this.$refs.myMap.mapObject
+      map.flyTo(L.latLng(coords[0], coords[1]), 9, { animation: true, duration: 3 })
+    },
     zoomUpdate (zoom) {
       this.currentZoom = zoom;
     },
     centerUpdate (center) {
       this.currentCenter = center;
     },
-    loadStation (id) {
-      alert(id)
+    loadStation (index) {
+      const map = this.$refs.myMap.mapObject
+      this.opened = index
+      map.setActiveArea('activeArea', false, true)
+      // this.center = this.sites[index].position
+      map.flyTo(this.sites[index].position, 9, { animation: true })
+
     },
     closeStations () {
+      const map = this.$refs.myMap.mapObject
       this.opened = null
+      this.center = L.latLng(58.8607968, 25.2094053)
+      map.setActiveArea('fullsMap', false, true)
+      console.log('flying....')
+      map.flyTo(this.center, 8, { animation: true })
+     
     }
   },
   async created () {
-    const SITES_URL = `${process.env.VUE_APP_BASE_URL}/`
-    const response = await axios.get(SITES_URL)
-    this.sites = response.data.data
+    // const SITES_URL = `${process.env.VUE_APP_BASE_URL}/`
+    // const response = await axios.get(SITES_URL)
+    // this.sites = response.data.data
+    this.sites = require('../data/index.json')
+    this.sites.forEach((site) => {
+      this.sites[site.index].station = require("../data/sites/" + site.index + ".json")
+    })
+
+    // map.setActiveArea('fullMap')
     this.sites.forEach((site, index) => {
       this.sites[index].position = { lat: site.latitude,
             lng: site.longitude }
       // let marker = await LMarker.new(L.latLng(site.latitude, site.longitude))
       this.markerGroup.push({ index: site.index, position: { lat: site.latitude , lng:  site.longitude }, visible: true, draggable: false})
-      this.remoteMarkers.push({ index: site.index, position: { lat: site.remote_latitude, lng: site.remote_longitude }, visible: true, draggable: false })
-      this.bounds = L.latLngBounds(this.markerGroup.map((o) => o.position))
+      site.remote_stations.forEach((remote) =>  {
+        this.remoteMarkers.push({ index: site.index, position: { lat: remote.remote_latitude, lng: remote.remote_longitude }, visible: true, draggable: false })
+      })
     })
+
+  },
+  mounted () {
+    const map = this.$refs.myMap.mapObject
+    console.log(this.markerGroup.map((o) => o.position.lat))
+    // this.bounds = L.latLngBounds(this.markerGroup.map((o) => o.position))
+    // console.log(map)
+    // console.log(this.bounds)
+    map.fitBounds(this.markerGroup.map((o) => L.latLng(o.position.lat, o.position.lng)))
   },
   watch: {
     opened: {

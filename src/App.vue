@@ -1,16 +1,33 @@
 <template>
   <div id="app">
-    <div id="lang">
-      <button v-on:click="setLocale('et-EE')">EST</button>
-      |
-      <button v-on:click="setLocale('en-GB')">ENG</button>
-      |
-      <button v-on:click="setLocale('ru-RU')">RUS</button>
+    <div class="header">
+      <div id="lang">
+        <button v-on:click="setLocale('et-EE')">EST</button>
+        <button v-on:click="setLocale('ru-RU')">ру</button>
+        <button v-on:click="setLocale('en-GB')">ENG</button>
+      </div>
+      <div class="title">
+        <span v-show="$i18n.locale == 'et-EE'">Siberi Lapsepõlv</span>
+        <span v-show="$i18n.locale == 'en-GB'">Children of Siberia</span>
+        <span v-show="$i18n.locale == 'ru-RU'">Siberi Lapsepõlv in Russian</span>
+      </div>
+      <div class="header_meta">
+        <div class="date">25.03&mdash;16.04.19</div>
+        <div class="tagline">
+          <span v-show="$i18n.locale == 'et-EE'">Üle-Eestiline Kunstiprogrammv</span>
+          <span v-show="$i18n.locale == 'en-GB'">blah blah blah</span>
+          <span v-show="$i18n.locale == 'ru-RU'">суас синт персецути</span>
+        </div>
+      </div>
     </div>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
+    <div class="content">
+      <router-view :locale="locale" />
     </div>
-    <router-view :locale="locale"/>
+    <div id="footer">
+      <div class="sled">
+        <img src="./assets/images/sled.png" />
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -46,34 +63,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import "../node_modules/leaflet/dist/leaflet.css";
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  z-index: 900;
-  position: fixed;
-  left: 100px;
-  padding: 30px;
-}
-
-#lang { 
-z-index: 900;
-position: fixed;
-right: 150px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+@import 'assets/css/siberi.scss';
 </style>

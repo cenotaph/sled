@@ -3,8 +3,13 @@ import App from './App.vue'
 import router from './router'
 import Vue2Leaflet from 'vue2-leaflet'
 import L from 'leaflet'
+import 'vue-awesome/icons/train'
+import Icon from 'vue-awesome/components/Icon'
 require('datejs')
 
+import VueHead from 'vue-head'
+
+Vue.use(VueHead)
 let defaultLocale = ''
 
 delete L.Icon.Default.prototype._getIconUrl
@@ -22,11 +27,17 @@ Vue.component('l-popup', Vue2Leaflet.LPopup);
 Vue.component('l-control-zoom', Vue2Leaflet.LControlZoom);
 Vue.component('l-geo-json', Vue2Leaflet.LGeoJson);
 Vue.component('l-feature-group', Vue2Leaflet.LFeatureGroup);
+Vue.component('v-icon', Icon)
 
 Vue.config.productionTip = false
 
 if (localStorage.locale) {
-  defaultLocale = localStorage.getItem('locale')
+  if (localStorage.locale === 'et-EE' || localStorage.locale === 'en-GB' || localStorage.locale === 'ru-RU') {
+    defaultLocale = localStorage.getItem('locale')
+  } else {
+    defaultLocale = 'et-EE'
+    localStorage.setItem('locale', defaultLocale)
+  }
 } else {
   defaultLocale = 'et-EE'
   localStorage.setItem('locale', defaultLocale)

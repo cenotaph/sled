@@ -1,0 +1,148 @@
+$pink: #fce2ed;
+$grey: #6f7a6a;
+$darkgrey: #3f4a3a;
+
+body {
+  background-color: $pink;
+  margin: 0;
+}
+@font-face {
+  font-family: 'altedin';
+  src: url('assets/fonts/Alte-DIN-1451-Mittelschrift.ttf.eot');
+  src: url('assets/fonts/Alte-DIN-1451-Mittelschrift.ttf.eot#iefix') format("embedded-opentype"),
+       url('assets/fonts/Alte-DIN-1451-Mittelschrift.ttf.woff') format('woff'),
+       url('assets/fonts/din1451alt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gidole';
+  src: url('assets/fonts/Gidole-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+#app {
+  font-family: 'altedin', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.header {
+  height: 20vH;
+  background-color: $grey;
+  .title {
+    max-width: 40%;
+    float: left;
+    padding: 3.75rem 0 5rem 1.75rem;
+    font-size: 5.5vw;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: -5px;
+    font-stretch: extra-condensed;
+    text-align: left;
+    span {
+      white-space: nowrap;
+    }
+  }
+  .header_meta {
+    padding-top: 4rem;
+    max-width: 40%;
+    color: white;
+    text-align: center;
+    float: right;
+    .date {
+      font-size: 3.5vw;
+    }
+    .tagline {
+      font-size: 1.5vw;
+      text-transform: uppercase;
+    }
+  }
+  #lang {
+    float: right;
+    button {
+      z-index: 99999;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background-color: $darkgrey;
+      font-size: 2rem;
+      padding: 0.3rem;
+      text-transform: uppercase;
+      color: $pink;
+      &:hover {
+        color: white;
+      }
+      margin-left: 0.2rem;
+    }
+  }
+}
+#nav {
+  z-index: 900;
+  position: fixed;
+  left: 100px;
+  padding: 30px;
+}
+
+#lang { 
+  // z-index: 900;
+  // position: fixed;
+  // right: 150px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.activeArea { 
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  right: 0;
+  height: 50vH;
+}
+.fullsMap { 
+  position: fixed;
+  top: 20%;
+  left: 5%;
+  right: 5%;
+  height: 70vH;
+}
+
+.content {
+  background-color: $pink;
+}
+.vue2leaflet-map {
+  position: absolute !important;
+  top: 20vH !important;
+  width: 90% !important;
+  left: 5% !important;
+}
+
+#footer {
+  position: fixed;
+  top: 90vH;
+  width: 100%;
+  .sled {
+    float: right;
+    max-width: 15%;
+    img {
+      width: auto;
+      max-height: 10vH;
+    }
+  }
+}

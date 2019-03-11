@@ -1,0 +1,85 @@
+$pink: #fce2ed;
+$grey: #6f7a6a;
+$darkgrey: #3f4a3a;
+
+.station_popup {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  max-width: 50%;
+  z-index: 10000;
+  background-color: $pink;
+  padding: 0 1rem 1rem 1rem;
+  border: 2px solid white;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(200, 200, 200, 0.67);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(255, 200, 200, 0.67);
+  box-shadow: 0px 0px 10px 0px rgba(200, 200, 200, 0.67);
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .top {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    .title_wrapper {
+      float: left;
+      text-align: left;
+      max-width: 35%;
+      .title {
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        font-size: 1.25rem;
+      }
+      .dates {
+        text-align:center;
+        font-size: 0.8rem;
+      }
+    }
+    .stations_wrapper {
+      float: right;
+      .from_station, .to_station {
+        float: left;
+        background-color: white;
+        border: 2px solid black;
+        padding: 3px 2px;
+        margin-right: 5px;
+        cursor: pointer;
+        span {
+          border-radius: 4px;
+          padding: 0.1rem 0.6rem;
+          text-transform: uppercase;
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+  .text_wrapper {
+    margin-top: 2rem;
+    clear: left;
+  }
+}
+
+.site_name {
+  font-weight: bold;
+}
+.title {
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+.description {
+  text-align: left;
+  font-size: 0.9rem;
+}

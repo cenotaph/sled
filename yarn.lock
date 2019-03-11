@@ -5903,6 +5903,11 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
+leaflet-active-area@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/leaflet-active-area/-/leaflet-active-area-1.1.0.tgz#d940e8ea85a3d3c7b5963471b4a268b6d29214ea"
+  integrity sha512-pCqlC0IELUe+eWJXl9HD1lZM6BPNWW4KQ2Vfn9h0dCj1Y13QAL0S3xJz11hdXy9ErcPI0dRx7fZ/HXASnuDfVg==
+
 leaflet@1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.3.1.tgz#86f336d2fb0e2d0ff446677049a5dc34cf0ea60e"
@@ -10004,6 +10009,11 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-awesome@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/vue-awesome/-/vue-awesome-3.4.0.tgz#4391edc847ed19da54b50567b0fc9ddaec01d670"
+  integrity sha512-DzNdHa0bBfXrgtyMTk5d1jW2DqeKsXYL8AsIl/E1gTLTLz9LiOj7V1RnZRAMtx58uTwmvBxdIMntxzZGOfxgpw==
+
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"
@@ -10025,6 +10035,11 @@ vue-eslint-parser@^5.0.0:
     espree "^4.1.0"
     esquery "^1.0.1"
     lodash "^4.17.11"
+
+vue-head@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/vue-head/-/vue-head-2.1.1.tgz#05c455d6bddd1f21e84ae6c537e600ac960d07fb"
+  integrity sha512-nU/HRSoX4PYvXp6GlqYqUresESu6oZP4/TbPF4L73BumNyELcDHvRE/89X5VxUuoTzesScFnkVijYaoAYuWOSQ==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.3"
