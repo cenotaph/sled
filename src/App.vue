@@ -7,16 +7,16 @@
         <button v-on:click="setLocale('en-GB')">ENG</button>
       </div>
       <div class="title">
-        <span v-show="$i18n.locale == 'et-EE'">Siberi Lapsepõlv</span>
-        <span v-show="$i18n.locale == 'en-GB'">Children of Siberia</span>
-        <span v-show="$i18n.locale == 'ru-RU'">Siberi Lapsepõlv in Russian</span>
+        <span v-show="$i18n.locale == 'et-EE'">{{ $texts['et-EE'].big_white_title }}</span>
+        <span v-show="$i18n.locale == 'en-GB'">{{ $texts['en-GB'].big_white_title }}</span>
+        <span v-show="$i18n.locale == 'ru-RU'">{{ $texts['ru-RU'].big_white_title }}</span>
       </div>
       <div class="header_meta">
         <div class="date">25.03&mdash;16.04.19</div>
         <div class="tagline">
-          <span v-show="$i18n.locale == 'et-EE'">Üle-Eestiline Kunstiprogrammv</span>
-          <span v-show="$i18n.locale == 'en-GB'">blah blah blah</span>
-          <span v-show="$i18n.locale == 'ru-RU'">суас синт персецути</span>
+          <span v-show="$i18n.locale == 'et-EE'">{{ $texts['et-EE'].small_white_title }}</span>
+          <span v-show="$i18n.locale == 'en-GB'">{{ $texts['en-GB'].small_white_title }}</span>
+          <span v-show="$i18n.locale == 'ru-RU'">{{ $texts['ru-RU'].small_white_title }}</span>
         </div>
       </div>
     </div>

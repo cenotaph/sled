@@ -45,10 +45,14 @@ if (localStorage.locale) {
 Date.i18n.setLanguage(defaultLocale)
 
 const i18n = new Vue({ data: { locale: defaultLocale}})
+const texts = require('./data/texts.json')
 
 i18n.install = function(){
   Object.defineProperty(Vue.prototype, '$i18n', {
     get () { return i18n }
+  })
+  Object.defineProperty(Vue.prototype, '$texts', {
+    get () { return texts }
   })
 }
 Vue.use(i18n)
