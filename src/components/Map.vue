@@ -35,7 +35,7 @@
       </l-marker>
     </l-map>
     <div v-for="site in sites" :key="site.index">
-      <station :id="site.index" :station="site.station" v-show="site.index === opened" 
+      <station :id="site.index" :station="site" v-show="site.index === opened" 
         @animate="animateMap"
         @clickclose="closeStations"></station>
     </div>
@@ -50,7 +50,8 @@
 <script>
 // import axios from 'axios'
 import Station from '@/components/Station'
-import { L, LMap, LTileLayer, LMarker } from 'vue2-leaflet'
+import L from 'leaflet'
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 import 'leaflet-active-area'
 export default {
   components: {
@@ -89,9 +90,10 @@ export default {
   },
   methods: {
     animateMap (coords) {
-      // console.log(this.markerGroup.map)
+      console.log(coords)
+
       const map = this.$refs.myMap.mapObject
-      map.flyTo(L.latLng(coords[0], coords[1]), 9, { animation: true, duration: 3 })
+      map.flyTo(L.latLng(coords[0], coords[1]), 11, { animation: true, duration: 3 })
     },
     zoomUpdate (zoom) {
       this.currentZoom = zoom;
@@ -104,17 +106,16 @@ export default {
       this.opened = index
       map.setActiveArea('activeArea', false, true)
       // this.center = this.sites[index].position
-      map.flyTo(this.sites[index].position, 9, { animation: true })
+      map.flyTo(this.sites[index].position, 14, { animation: true })
 
     },
-    closeStations () {
+    async closeStations () {
       const map = this.$refs.myMap.mapObject
       this.opened = null
-      this.center = L.latLng(58.8607968, 25.2094053)
       map.setActiveArea('fullsMap', false, true)
-      console.log('flying....')
-      map.flyTo(this.center, 8, { animation: true })
-     
+      await map.flyTo(this.center, 8, { animation: true }).once('moveend', () => {
+        map.fitBounds(this.bounds)
+      })
     }
   },
   async created () {
@@ -123,7 +124,7 @@ export default {
     // this.sites = response.data.data
     this.sites = require('../data/index.json')
     this.sites.forEach((site) => {
-      this.sites[site.index].station = require("../data/sites/" + site.index + ".json")
+      this.sites[site.index].data = require("../data/sites/" + site.index + ".json")
     })
 
     // map.setActiveArea('fullMap')
@@ -140,11 +141,11 @@ export default {
   },
   mounted () {
     const map = this.$refs.myMap.mapObject
-    console.log(this.markerGroup.map((o) => o.position.lat))
-    // this.bounds = L.latLngBounds(this.markerGroup.map((o) => o.position))
+    // console.log(this.markerGroup.map((o) => o.position.lat))
+    this.bounds = L.latLngBounds(this.markerGroup.map((o) => o.position))
     // console.log(map)
     // console.log(this.bounds)
-    map.fitBounds(this.markerGroup.map((o) => L.latLng(o.position.lat, o.position.lng)))
+    map.fitBounds(this.bounds)
   },
   watch: {
     opened: {

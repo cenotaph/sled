@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import Vue2Leaflet from 'vue2-leaflet'
+import * as Vue2Leaflet from 'vue2-leaflet'
 import L from 'leaflet'
 import 'vue-awesome/icons/train'
 import Icon from 'vue-awesome/components/Icon'

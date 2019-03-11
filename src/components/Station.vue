@@ -1,29 +1,30 @@
 <template>
-  <div class="station_popup" v-if="station" v-show="station.name">
+  <div class="station_popup" v-if="station.data" v-show="station.index">
     <span class="close" @click="closeSelf">&times;</span>
     <div class="top">
       <div class="title_wrapper" v-for="l in ['et-EE', 'en-GB', 'ru-RU']" :key="l">
         <div v-show="$i18n.locale == l">
-          <div class="title"> {{ station[l].title }}</div>
+          <div class="title"> {{ station.data[l].title }}</div>
           <div class="dates">
-            {{ Date.parse(station.start_date).toString("d") }} – {{ Date.parse(station.end_date).toString("d") }}
+            {{ Date.parse(station.data.start_date).toString("d") }} – {{ Date.parse(station.data.end_date).toString("d") }}
           </div>
         </div>
       </div>
-      <div class="stations_wrapper" v-for="l in ['et-EE', 'en-GB', 'ru-RU']" :key="'station' + station.index + '_' + l">
+      <div class="stations_wrapper" v-if="station.remote_stations.length > 0" v-for="l in ['et-EE', 'en-GB', 'ru-RU']" :key="'station.data[l].title' + id + '_' + l">
         <div v-show="$i18n.locale == l">
           <div class="from_station" @click="animateMap(station.latitude, station.longitude)" >
-            <span class="rounded">{{ station[l].name }}</span>
+            <span class="rounded">{{ station.data[l].name }}</span>
           </div>
-          <div v-for="(remote, i) in station[l].remote_stations" :key="i" class="to_station" @click="animateMap(remote.remote_latitude, remote.remote_longitude)" >
+          <div v-for="(remote, i) in station.data[l].remotes" :key="i" class="to_station" @click="animateMap(station.remote_stations[i].remote_latitude, station.remote_stations[i].remote_longitude)" >
             <span class="rounded">{{ remote.remote_name }}</span>
+            
           </div>
         </div>
       </div>
     </div>
     <div class="text_wrapper" v-for="l in ['et-EE', 'en-GB', 'ru-RU']" :key="l">
       <div v-show="$i18n.locale == l">
-        <div class="description"> {{ station[l].description}}</div>
+        <div class="description"> {{ station.data[l].description}}</div>
       </div>
     </div>
   </div>
