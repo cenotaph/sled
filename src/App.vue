@@ -12,7 +12,7 @@
         <span v-show="$i18n.locale == 'ru-RU'">{{ $texts['ru-RU'].big_white_title }}</span>
       </div>
       <div class="header_meta">
-        <div class="date">25.03&mdash;16.04.19</div>
+        <div class="date">25.03&mdash;14.06.19</div>
         <div class="tagline">
           <span v-show="$i18n.locale == 'et-EE'">{{ $texts['et-EE'].small_white_title }}</span>
           <span v-show="$i18n.locale == 'en-GB'">{{ $texts['en-GB'].small_white_title }}</span>
@@ -24,6 +24,13 @@
       <router-view :locale="locale" />
     </div>
     <div id="footer">
+      <div class="press_link">
+        <p v-for="l in ['et-EE', 'en-GB', 'ru-RU']" :key="l">
+          <a href="/PRESS_SL.pdf" target="_blank" v-show="$i18n.locale == l">{{ $texts[l].press_kit }}</a>
+        </p>
+        <p>siberilapsed@gmail.com</p>
+        <p>{{ phone }} </p>
+      </div>
       <div class="sled">
         <img src="./assets/images/sled.png" />
       </div>
@@ -35,6 +42,7 @@ export default {
   name: 'App',
   data () {
     return {
+      phone: ['+372 5552 9199', '+372 58093126', '+372 5627 8338'][Math.floor(Math.random() * 3)],
       locale: '' 
     }
   },
@@ -66,4 +74,5 @@ export default {
 <style lang="scss">
 @import "../node_modules/leaflet/dist/leaflet.css";
 @import 'assets/css/siberi.scss';
+@import 'assets/css/mobile.scss';
 </style>

@@ -3,10 +3,9 @@ import App from './App.vue'
 import router from './router'
 import * as Vue2Leaflet from 'vue2-leaflet'
 import L from 'leaflet'
-import 'vue-awesome/icons/train'
-import Icon from 'vue-awesome/components/Icon'
 require('datejs')
-
+import moment from 'moment'
+Vue.prototype.moment = moment
 import VueHead from 'vue-head'
 
 Vue.use(VueHead)
@@ -19,6 +18,7 @@ L.Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 })
+
 Vue.component('l-map', Vue2Leaflet.LMap);
 Vue.component('l-tilelayer', Vue2Leaflet.LTileLayer);
 Vue.component('l-marker', Vue2Leaflet.LMarker);
@@ -27,7 +27,7 @@ Vue.component('l-popup', Vue2Leaflet.LPopup);
 Vue.component('l-control-zoom', Vue2Leaflet.LControlZoom);
 Vue.component('l-geo-json', Vue2Leaflet.LGeoJson);
 Vue.component('l-feature-group', Vue2Leaflet.LFeatureGroup);
-Vue.component('v-icon', Icon)
+Vue.component('l-icon', Vue2Leaflet.LIcon)
 
 Vue.config.productionTip = false
 

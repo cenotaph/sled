@@ -5896,6 +5896,16 @@ leaflet-active-area@^1.1.0:
   resolved "https://registry.yarnpkg.com/leaflet-active-area/-/leaflet-active-area-1.1.0.tgz#d940e8ea85a3d3c7b5963471b4a268b6d29214ea"
   integrity sha512-pCqlC0IELUe+eWJXl9HD1lZM6BPNWW4KQ2Vfn9h0dCj1Y13QAL0S3xJz11hdXy9ErcPI0dRx7fZ/HXASnuDfVg==
 
+leaflet-providers@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/leaflet-providers/-/leaflet-providers-1.5.0.tgz#06d598231ef36f8d0566c219cedf18cef2ff80f5"
+  integrity sha512-btncloSyOHrgYNexoz2dRpCl+U9iDQME91RsOWQWNAD9jQUPAkq9mxuTvL/O9VOwrqcEtzhvuHBHIOacJAZDxQ==
+
+leaflet.locatecontrol@^0.66.2:
+  version "0.66.2"
+  resolved "https://registry.yarnpkg.com/leaflet.locatecontrol/-/leaflet.locatecontrol-0.66.2.tgz#a99023b53a7b71d694b02efe4e8aeab7b1789202"
+  integrity sha512-33xCfRydyjLfh9nGvf4kSTM0tA1EFFgM0z4uj75QkUwIc9cz0vJqWABsyDirLm1GBKeEr8/krcnc10X1YuK7oA==
+
 leaflet@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.4.0.tgz#d5f56eeb2aa32787c24011e8be4c77e362ae171b"
@@ -6684,6 +6694,11 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+moment@^2.15.2:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -9991,11 +10006,6 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
-
-vue-awesome@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/vue-awesome/-/vue-awesome-3.4.0.tgz#4391edc847ed19da54b50567b0fc9ddaec01d670"
-  integrity sha512-DzNdHa0bBfXrgtyMTk5d1jW2DqeKsXYL8AsIl/E1gTLTLz9LiOj7V1RnZRAMtx58uTwmvBxdIMntxzZGOfxgpw==
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"

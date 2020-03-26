@@ -36,17 +36,20 @@ a {
 }
 
 .header {
-  height: 20vH;
+  height: 12vH;
+  min-height: 60px;
   background-color: $grey;
   .title {
-    max-width: 40%;
+    max-width: 47%;
     float: left;
-    padding: 3.75rem 0 5rem 1.75rem;
-    font-size: 5.5vw;
+    padding: 0.75rem 0 0.75rem 1.75rem;
+    font-size: 5vw;
+    margin-right: 2rem;
     color: white;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: -5px;
+    letter-spacing: -1px;
+    word-wrap: break-word;
     font-stretch: extra-condensed;
     text-align: left;
     span {
@@ -54,13 +57,13 @@ a {
     }
   }
   .header_meta {
-    padding-top: 4rem;
-    max-width: 40%;
+    padding-top: 1.25rem;
+    // max-width: 50%;
     color: white;
     text-align: center;
-    float: right;
+    float: left;
     .date {
-      font-size: 3.5vw;
+      font-size: 1.6rem;
     }
     .tagline {
       font-size: 1.5vw;
@@ -69,13 +72,15 @@ a {
   }
   #lang {
     float: right;
+    position: absolute;
+    right: 1px;
     button {
       z-index: 99999;
       cursor: pointer;
       border: none;
       outline: none;
       background-color: $darkgrey;
-      font-size: 2rem;
+      font-size: 1.5rem;
       padding: 0.3rem;
       text-transform: uppercase;
       color: $pink;
@@ -111,7 +116,7 @@ a {
 .activeArea { 
   position: absolute;
   top: 30%;
-  left: 50%;
+  left: 60%;
   right: 0;
   height: 50vH;
 }
@@ -120,7 +125,7 @@ a {
   top: 5%;
   left: 5%;
   right: 5%;
-  height: 70vH;
+  height: 75vH;
 }
 
 .content {
@@ -128,21 +133,36 @@ a {
 }
 .vue2leaflet-map {
   position: absolute !important;
-  top: 20vH !important;
+  top: 12vH !important;
   width: 90% !important;
   left: 5% !important;
 }
 
+
 #footer {
   position: fixed;
-  top: 90vH;
-  width: 100%;
+  width: 90%;
+  left: 5%;
+  top: 90vh;
+  .press_link {
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    a {
+      color: $grey;
+    }
+
+    text-align: left;
+    float: left;
+  }
   .sled {
+    text-align: right;
     float: right;
-    max-width: 15%;
+    padding-top: 10px;
+
     img {
-      width: auto;
-      max-height: 10vH;
+      max-height: 8vmin;
     }
   }
 }

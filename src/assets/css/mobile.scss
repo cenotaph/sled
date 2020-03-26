@@ -1,0 +1,273 @@
+@media only screen 
+  and (max-width: 400px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  #app {
+    height: 100%;
+    padding-bottom: 50px;
+    -webkit-overflow-scrolling: touch;
+    .header {
+      height: 15vH;
+      text-align: center;
+      .title {
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        float: initial;
+        letter-spacing: initial;
+        font-size: 5vw;
+        padding: 1.2rem 0 0 0;
+      }
+      .header_meta {
+        padding-top: 0;
+        float: none;
+        max-width: 100%;
+        .date {
+          font-size: 1rem;
+        }
+        .tagline {
+          font-size: 1rem;
+        }
+      }
+      #lang {      
+        position: absolute;
+        right: 1px;
+        button {
+          font-size: 0.6rem;
+        }
+      }
+    }
+
+    .content {
+      .vue2leaflet-map {
+        position: absolute !important;
+        top: 15vH !important;
+        width: 90% !important;
+        left: 5% !important;
+        height: 70vH !important;
+      }
+      .station_popup {
+        top: 21vH;
+        left: 2%;
+        max-height: 50vH;
+        overflow-y: scroll;
+        max-width: 95%;
+        .title_wrapper {
+          .title {
+            font-size: 1rem;
+          }
+        }
+        .text_wrapper {
+          .description, .railway_description {
+            font-size: 0.75rem;
+          }
+        }
+      }
+      .activeArea {
+        top: 50%;
+        left: 0%;
+      }
+    }
+
+    #footer {
+      p {
+        font-size: 0.65rem;
+      }
+      top: 85vh;
+      .sled {
+        img {
+          max-height: 40px;
+        }
+      }
+    }
+  }
+
+}
+
+@media only screen and (min-width: 1284px) and (orientation: portrait) {
+  #app {
+    .header {
+      .title {
+        line-height: 5rem;
+        margin-bottom: 0;
+      }
+      .header_meta {
+        // width: 100%;
+        padding-top: 1.5rem;
+      }
+    }
+  }
+}
+@media only screen 
+  and (max-width: 812px) {
+  #app {
+    .header {
+
+      #lang {
+        button {
+          font-size: 0.5rem;
+        }
+      }
+      .title {
+        margin: 0;
+
+        // padding-top: 1.7rem !important;
+        padding-bottom: 0;
+        max-width: 100%;
+        padding: 0;
+        text-align: center;
+        width: 100%;
+      }
+      .header_meta {
+        clear: left;
+        padding: 0 0 0 0;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        .date {
+          font-size: 0.8rem;
+          // float: left;
+          margin-right: 30px;
+        }
+        .tagline {
+          // float: left;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+@media only screen 
+  and (max-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    #app {
+      #footer {
+        .press_link {
+          p {
+            font-size: 0.65rem;
+          }
+        }
+        .sled {
+          padding: 0;
+          img {
+            max-height: 4vH;
+          }
+        }
+      }
+      .header {
+        .title {
+          max-width: 51%;
+          float: initial;
+          letter-spacing: initial;
+          float: left;
+          font-size: 8vw;
+          padding-bottom: 0;
+          margin-bottom: 0.4rem;
+          padding: 0 1rem;
+        }
+        .header_meta {
+          float: left;
+          padding-left: 2rem;
+          .date {
+            font-size: 0.8rem;
+            float: left;
+            text-align: left;
+            margin-right: 30px;
+          }
+          .tagline {
+            float: left;
+            font-size: 0.8rem;
+          }
+        }
+      }
+      #lang {
+        position: absolute;
+        right: 0;
+
+        button {
+          font-size: 0.75rem;
+        }
+      }
+    }
+    .content {
+      .station_popup {
+        .close {
+          font-size: 20px;
+        }
+        padding: 0.4rem;
+        top: 15vH;
+        max-width: 53%;
+        max-height: 75vH;
+        overflow-y:scroll;
+        .top {
+          padding: 0.4rem;
+          .title_wrapper {
+            .title {
+              font-size: 1rem;
+            }
+          }
+
+          .stations_wrapper {
+            .to_station, .from_station {
+              font-size: 0.8rem;
+            }
+          }
+        }
+        .text_wrapper {
+          .description, .railway_description {
+            font-size: 0.8rem;
+          }
+          .come {
+            margin-top: 0.2rem;
+            font-size: 0.75rem;
+          }
+        }
+      }
+    }
+
+}
+
+@media only screen and (max-height: 494px) {
+  .vue2leaflet-map {
+    top: 60px !important;
+  }
+  .fullsMap {
+    top: 60px !important;
+  }
+  #footer {
+    z-index: 1000;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 812px) {
+  #app {
+    .header {
+      .title {
+        font-size: 5vw;
+        max-height: 60px;
+      }
+    }
+  }
+
+}
+
+@media only screen and 
+(max-height: 600px) and (orientation: landscape) and (min-width: 1024px) {
+  #app {
+    .header {
+      .title {
+        font-size: 45px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-height: 540px) and (orientation:landscape) {
+  #app {
+    .header {
+      .header_meta {
+        padding-top: 0.25rem !important;
+      }
+    }
+  }
+}
+

@@ -4,9 +4,9 @@ $darkgrey: #3f4a3a;
 
 .station_popup {
   position: absolute;
-  top: 30%;
-  left: 10%;
-  max-width: 50%;
+  top: 20%;
+  left: 6%;
+  max-width: 44%;
   z-index: 10000;
   background-color: $pink;
   padding: 0 1rem 1rem 1rem;
@@ -35,7 +35,7 @@ $darkgrey: #3f4a3a;
     .title_wrapper {
       float: left;
       text-align: left;
-      max-width: 35%;
+      // max-width: 35%;
       .title {
         text-align: center;
         text-decoration: none;
@@ -43,9 +43,13 @@ $darkgrey: #3f4a3a;
         margin-bottom: 0;
         font-size: 1.25rem;
       }
+      .custom_location {
+        text-align: center;
+      }
       .dates {
         text-align:center;
-        font-size: 0.8rem;
+        font-size: 1rem;
+        margin: 1rem 0; 
       }
     }
     .stations_wrapper {
@@ -69,6 +73,48 @@ $darkgrey: #3f4a3a;
   .text_wrapper {
     margin-top: 2rem;
     clear: left;
+
+    .railway_description {
+      text-align: left;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+    .come {
+      margin: 1rem 0;
+      cursor: pointer;
+      background-color: $darkgrey;
+      color: $pink;
+      float: right;
+      text-transform: uppercase;
+      border: 1px solid white;
+      padding: 0.3rem 0.6rem;
+    }
+  }
+  .route_chooser {
+    text-align: left;
+    ol {
+      margin: 0;
+      padding-left: 1rem;
+    }
+    li.route_item {
+      cursor: pointer;
+      margin: 0.5rem 0;
+      span.duration {
+        font-size: 0.76rem;
+        font-style: italic;
+      }
+      .transit_deets {
+        ol {
+          li.offsite {
+            a {
+              cursor: pointer;
+              color: $grey;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
